@@ -1,0 +1,1008 @@
+
+
+
+<!doctype html>
+<!--[if lte IE 9]>
+<html lang="en" class="oldie">
+<![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+ 
+<title>  game</title>
+<link rel="stylesheet" media="screen" href="https://cpwebassets.codepen.io/assets/fullpage/fullpage-1580f96ce81ff0a427cf57dda2748ce646c38efc201ae5942a29958cffa6856d.css" />
+ 
+</head>
+<body class=" ">
+<header id=" " class=" "></header>
+<div class=" ">
+<a href="https://codepen.io/HunorMarton/pen/VwKwgxX"> </a>
+</div>
+<div id="result-iframe-wrap" role="main">
+    <body class="">
+        <div class="referer-warning">
+          <h1>
+             <a href="https://blog.codepen.io/2017/10/05/regarding-referer-headers/" target="_blank"> </a>linked to system solve it. 4balls>>>>>>>>1ball
+        </div>
+      
+        <div id="result-iframe-wrap" role="main">
+      
+          <iframe id="result" srcdoc="
+      <!DOCTYPE html>
+      <html lang=&quot;en&quot; >
+      
+      <head>
+      
+        <meta charset=&quot;UTF-8&quot;>
+        
+      <link rel=&quot;apple-touch-icon&quot; type=&quot;image/png&quot; href=&quot;https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png&quot; />
+      <meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;CodePen&quot;>
+      
+      <link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico&quot; />
+      
+      <link rel=&quot;mask-icon&quot; type=&quot;image/x-icon&quot; href=&quot;https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg&quot; color=&quot;#111&quot; />
+      
+      
+        <title>CodePen - Tilting Maze game</title>
+        
+        
+        
+        
+      <style>
+      body {
+        /* https://coolors.co/f06449-ede6e3-7d82b8-36382e-613f75  */
+        --background-color: #ede6e3;
+        --wall-color: #36382e;
+        --joystick-color: #210124;
+        --joystick-head-color: #f06449;
+        --ball-color: #f06449;
+        --end-color: #7d82b8;
+        --text-color: #210124;
+      
+        font-family: &quot;Segoe UI&quot;, Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--background-color);
+      }
+      
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      
+      #center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+      
+      #game {
+        display: grid;
+        grid-template-columns: auto 150px;
+        grid-template-rows: 1fr auto 1fr;
+        gap: 30px;
+        perspective: 600px;
+      }
+      
+      #maze {
+        position: relative;
+        grid-row: 1 / -1;
+        grid-column: 1;
+        width: 350px;
+        height: 315px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      #end {
+        width: 100px;
+        height: 100px;
+        border: 10px dashed var(--end-color);
+        border-radius: 50%;
+      }
+      
+      #joystick {
+        position: relative;
+        background-color: var(--joystick-color);
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px 50px;
+        grid-row: 2;
+      }
+      
+      #joystick-head {
+        position: relative;
+        background-color: var(--joystick-head-color);
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        cursor: grab;
+      
+        animation-name: glow;
+        animation-duration: 0.6s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-timing-function: ease-in-out;
+        animation-delay: 4s;
+      }
+      
+      @keyframes glow {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.2);
+        }
+      }
+      
+      .joystick-arrow:nth-of-type(1) {
+        position: absolute;
+        bottom: 55px;
+      
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+      
+        border-bottom: 10px solid var(--joystick-color);
+      }
+      
+      .joystick-arrow:nth-of-type(2) {
+        position: absolute;
+        top: 55px;
+      
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+      
+        border-top: 10px solid var(--joystick-color);
+      }
+      
+      .joystick-arrow:nth-of-type(3) {
+        position: absolute;
+        left: 55px;
+      
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+      
+        border-left: 10px solid var(--joystick-color);
+      }
+      
+      .joystick-arrow:nth-of-type(4) {
+        position: absolute;
+        right: 55px;
+      
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+      
+        border-right: 10px solid var(--joystick-color);
+      }
+      
+      #note {
+        grid-row: 3;
+        grid-column: 2;
+        text-align: center;
+        font-size: 0.8em;
+        color: var(--text-color);
+        transition: opacity 2s;
+      }
+      
+      a:visited {
+        color: inherit;
+      }
+      
+      .ball {
+        position: absolute;
+        margin-top: -5px;
+        margin-left: -5px;
+        border-radius: 50%;
+        background-color: var(--ball-color);
+        width: 10px;
+        height: 10px;
+      }
+      
+      .wall {
+        position: absolute;
+        background-color: var(--wall-color);
+        transform-origin: top center;
+        margin-left: -5px;
+      }
+      
+      .wall::before,
+      .wall::after {
+        display: block;
+        content: &quot;&quot;;
+        width: 10px;
+        height: 10px;
+        background-color: inherit;
+        border-radius: 50%;
+        position: absolute;
+      }
+      
+      .wall::before {
+        top: -5px;
+      }
+      
+      .wall::after {
+        bottom: -5px;
+      }
+      
+      .black-hole {
+        position: absolute;
+        margin-top: -9px;
+        margin-left: -9px;
+        border-radius: 50%;
+        background-color: black;
+        width: 18px;
+        height: 18px;
+      }
+      
+      #youtube,
+      #youtube-card {
+        display: none;
+      }
+      
+      @media (min-height: 425px) {
+        /** Youtube logo by https://codepen.io/alvaromontoro */
+        #youtube {
+          z-index: 2;
+          display: block;
+          width: 100px;
+          height: 70px;
+          position: absolute;
+          bottom: 20px;
+          right: 20px;
+          background: red;
+          border-radius: 50% / 11%;
+          transform: scale(0.8);
+          transition: transform 0.5s;
+        }
+      
+        #youtube:hover,
+        #youtube:focus {
+          transform: scale(0.9);
+        }
+      
+        #youtube::before {
+          content: &quot;&quot;;
+          display: block;
+          position: absolute;
+          top: 7.5%;
+          left: -6%;
+          width: 112%;
+          height: 85%;
+          background: red;
+          border-radius: 9% / 50%;
+        }
+      
+        #youtube::after {
+          content: &quot;&quot;;
+          display: block;
+          position: absolute;
+          top: 20px;
+          left: 40px;
+          width: 45px;
+          height: 30px;
+          border: 15px solid transparent;
+          box-sizing: border-box;
+          border-left: 30px solid white;
+        }
+      
+        #youtube span {
+          font-size: 0;
+          position: absolute;
+          width: 0;
+          height: 0;
+          overflow: hidden;
+        }
+      
+        #youtube:hover + #youtube-card {
+          display: block;
+          position: absolute;
+          bottom: 12px;
+          right: 10px;
+          padding: 25px 130px 25px 25px;
+          width: 300px;
+          background-color: white;
+        }
+      }
+      </style>
+      
+        <script>
+        window.console = window.console || function(t) {};
+      </script>
+      
+        
+        
+        <script>
+        if (document.location.search.match(/type=embed/gi)) {
+          window.parent.postMessage(&quot;resize&quot;, &quot;*&quot;);
+        }
+      </script>
+      
+      
+      </head>
+      
+      <body translate=&quot;no&quot; >
+        <div id=&quot;center&quot;>
+        <div id=&quot;game&quot;>
+          <div id=&quot;maze&quot;>
+            <div id=&quot;end&quot;></div>
+          </div>
+          <div id=&quot;joystick&quot;>
+            <div class=&quot;joystick-arrow&quot;></div>
+            <div class=&quot;joystick-arrow&quot;></div>
+            <div class=&quot;joystick-arrow&quot;></div>
+            <div class=&quot;joystick-arrow&quot;></div>
+            <div id=&quot;joystick-head&quot;></div>
+          </div>
+          <div id=&quot;note&quot;>
+            Click the joystick to start!
+            <p>Move every ball to the center. Ready for hard mode? Press H</p>
+          </div>
+        </div>
+      </div>
+     
+      <div id=&quot;youtube-card&quot;>
+        How to simulate ball movement in a maze with JavaScript
+      </div>
+          <script src=&quot;https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js&quot;></script>
+      
+        
+            <script id=&quot;rendered-js&quot; >
+      /*
+      
+      If you want to know how this game works, you can find a source code walkthrough video here: https://youtu.be/bTk6dcAckuI
+      
+       
+      
+      */
+      
+      Math.minmax = (value, limit) => {
+        return Math.max(Math.min(value, limit), -limit);
+      };
+      
+      const distance2D = (p1, p2) => {
+        return Math.sqrt((p2.x - p1.x) ** 2 + (p2.y - p1.y) ** 2);
+      };
+      
+      // Angle between the two points
+      const getAngle = (p1, p2) => {
+        let angle = Math.atan((p2.y - p1.y) / (p2.x - p1.x));
+        if (p2.x - p1.x < 0) angle += Math.PI;
+        return angle;
+      };
+      
+      // The closest a ball and a wall cap can be
+      const closestItCanBe = (cap, ball) => {
+        let angle = getAngle(cap, ball);
+      
+        const deltaX = Math.cos(angle) * (wallW / 2 + ballSize / 2);
+        const deltaY = Math.sin(angle) * (wallW / 2 + ballSize / 2);
+      
+        return { x: cap.x + deltaX, y: cap.y + deltaY };
+      };
+      
+      // Roll the ball around the wall cap
+      const rollAroundCap = (cap, ball) => {
+        // The direction the ball can't move any further because the wall holds it back
+        let impactAngle = getAngle(ball, cap);
+      
+        // The direction the ball wants to move based on it's velocity
+        let heading = getAngle(
+        { x: 0, y: 0 },
+        { x: ball.velocityX, y: ball.velocityY });
+      
+      
+        // The angle between the impact direction and the ball's desired direction
+        // The smaller this angle is, the bigger the impact
+        // The closer it is to 90 degrees the smoother it gets (at 90 there would be no collision)
+        let impactHeadingAngle = impactAngle - heading;
+      
+        // Velocity distance if not hit would have occurred
+        const velocityMagnitude = distance2D(
+        { x: 0, y: 0 },
+        { x: ball.velocityX, y: ball.velocityY });
+      
+        // Velocity component diagonal to the impact
+        const velocityMagnitudeDiagonalToTheImpact =
+        Math.sin(impactHeadingAngle) * velocityMagnitude;
+      
+        // How far should the ball be from the wall cap
+        const closestDistance = wallW / 2 + ballSize / 2;
+      
+        const rotationAngle = Math.atan(
+        velocityMagnitudeDiagonalToTheImpact / closestDistance);
+      
+      
+        const deltaFromCap = {
+          x: Math.cos(impactAngle + Math.PI - rotationAngle) * closestDistance,
+          y: Math.sin(impactAngle + Math.PI - rotationAngle) * closestDistance };
+      
+      
+        const x = ball.x;
+        const y = ball.y;
+        const velocityX = ball.x - (cap.x + deltaFromCap.x);
+        const velocityY = ball.y - (cap.y + deltaFromCap.y);
+        const nextX = x + velocityX;
+        const nextY = y + velocityY;
+      
+        return { x, y, velocityX, velocityY, nextX, nextY };
+      };
+      
+      // Decreases the absolute value of a number but keeps it's sign, doesn't go below abs 0
+      const slow = (number, difference) => {
+        if (Math.abs(number) <= difference) return 0;
+        if (number > difference) return number - difference;
+        return number + difference;
+      };
+      
+      const mazeElement = document.getElementById(&quot;maze&quot;);
+      const joystickHeadElement = document.getElementById(&quot;joystick-head&quot;);
+      const noteElement = document.getElementById(&quot;note&quot;); // Note element for instructions and game won, game failed texts
+      
+      let hardMode = false;
+      let previousTimestamp;
+      let gameInProgress;
+      let mouseStartX;
+      let mouseStartY;
+      let accelerationX;
+      let accelerationY;
+      let frictionX;
+      let frictionY;
+      
+      const pathW = 25; // Path width
+      const wallW = 10; // Wall width
+      const ballSize = 10; // Width and height of the ball
+      const holeSize = 18;
+      
+      const debugMode = false;
+      
+      let balls = [];
+      let ballElements = [];
+      let holeElements = [];
+      
+      resetGame();
+      
+      // Draw balls for the first time
+      balls.forEach(({ x, y }) => {
+        const ball = document.createElement(&quot;div&quot;);
+        ball.setAttribute(&quot;class&quot;, &quot;ball&quot;);
+        ball.style.cssText = `left: ${x}px; top: ${y}px; `;
+      
+        mazeElement.appendChild(ball);
+        ballElements.push(ball);
+      });
+      
+      // Wall metadata
+      const walls = [
+      // Border
+      { column: 0, row: 0, horizontal: true, length: 10 },
+      { column: 0, row: 0, horizontal: false, length: 9 },
+      { column: 0, row: 9, horizontal: true, length: 10 },
+      { column: 10, row: 0, horizontal: false, length: 9 },
+      
+      // Horizontal lines starting in 1st column
+      { column: 0, row: 6, horizontal: true, length: 1 },
+      { column: 0, row: 8, horizontal: true, length: 1 },
+      
+ 
+    
+      // Vertical lines after the 8th column
+      { column: 8, row: 2, horizontal: false, length: 1 },
+      { column: 8, row: 4, horizontal: false, length: 2 },
+      
+      // Vertical lines after the 9th column
+      { column: 9, row: 1, horizontal: false, length: 1 },
+      { column: 9, row: 5, horizontal: false, length: 2 }].
+      map(wall => ({
+        x: wall.column * (pathW + wallW),
+        y: wall.row * (pathW + wallW),
+        horizontal: wall.horizontal,
+        length: wall.length * (pathW + wallW) }));
+      
+      
+      // Draw walls
+      walls.forEach(({ x, y, horizontal, length }) => {
+        const wall = document.createElement(&quot;div&quot;);
+        wall.setAttribute(&quot;class&quot;, &quot;wall&quot;);
+        wall.style.cssText = `
+            left: ${x}px;
+            top: ${y}px;
+            width: ${wallW}px;
+            height: ${length}px;
+            transform: rotate(${horizontal ? -90 : 0}deg);
+          `;
+      
+        mazeElement.appendChild(wall);
+      });
+      
+      const holes = [
+      { column: 0, row: 5 },
+      { column: 2, row: 0 },
+      { column: 2, row: 4 },
+      { column: 4, row: 6 },
+      { column: 6, row: 2 },
+      { column: 6, row: 8 },
+      { column: 8, row: 1 },
+      { column: 8, row: 2 }].
+      map(hole => ({
+        x: hole.column * (wallW + pathW) + (wallW / 2 + pathW / 2),
+        y: hole.row * (wallW + pathW) + (wallW / 2 + pathW / 2) }));
+      
+      
+      joystickHeadElement.addEventListener(&quot;mousedown&quot;, function (event) {
+        if (!gameInProgress) {
+          mouseStartX = event.clientX;
+          mouseStartY = event.clientY;
+          gameInProgress = true;
+          window.requestAnimationFrame(main);
+          noteElement.style.opacity = 0;
+          joystickHeadElement.style.cssText = `
+              animation: none;
+              cursor: grabbing;
+            `;
+        }
+      });
+      
+      window.addEventListener(&quot;mousemove&quot;, function (event) {
+        if (gameInProgress) {
+          const mouseDeltaX = -Math.minmax(mouseStartX - event.clientX, 15);
+          const mouseDeltaY = -Math.minmax(mouseStartY - event.clientY, 15);
+      
+          joystickHeadElement.style.cssText = `
+              left: ${mouseDeltaX}px;
+              top: ${mouseDeltaY}px;
+              animation: none;
+              cursor: grabbing;
+            `;
+      
+          const rotationY = mouseDeltaX * 0.8; // Max rotation = 12
+          const rotationX = mouseDeltaY * 0.8;
+      
+          mazeElement.style.cssText = `
+              transform: rotateY(${rotationY}deg) rotateX(${-rotationX}deg)
+            `;
+      
+          const gravity = 2;
+          const friction = 0.01; // Coefficients of friction
+      
+          accelerationX = gravity * Math.sin(rotationY / 180 * Math.PI);
+          accelerationY = gravity * Math.sin(rotationX / 180 * Math.PI);
+          frictionX = gravity * Math.cos(rotationY / 180 * Math.PI) * friction;
+          frictionY = gravity * Math.cos(rotationX / 180 * Math.PI) * friction;
+        }
+      });
+      
+      window.addEventListener(&quot;keydown&quot;, function (event) {
+        // If not an arrow key or space or H was pressed then return
+        if (![&quot; &quot;, &quot;H&quot;, &quot;h&quot;, &quot;E&quot;, &quot;e&quot;].includes(event.key)) return;
+      
+        // If an arrow key was pressed then first prevent default
+        event.preventDefault();
+      
+        // If space was pressed restart the game
+        if (event.key == &quot; &quot;) {
+          resetGame();
+          return;
+        }
+      
+        // Set Hard mode
+        if (event.key == &quot;H&quot; || event.key == &quot;h&quot;) {
+          hardMode = true;
+          resetGame();
+          return;
+        }
+      
+        // Set Easy mode
+        if (event.key == &quot;E&quot; || event.key == &quot;e&quot;) {
+          hardMode = false;
+          resetGame();
+          return;
+        }
+      });
+      
+      function resetGame() {
+        previousTimestamp = undefined;
+        gameInProgress = false;
+        mouseStartX = undefined;
+        mouseStartY = undefined;
+        accelerationX = undefined;
+        accelerationY = undefined;
+        frictionX = undefined;
+        frictionY = undefined;
+      
+        mazeElement.style.cssText = `
+            transform: rotateY(0deg) rotateX(0deg)
+          `;
+      
+        joystickHeadElement.style.cssText = `
+            left: 0;
+            top: 0;
+            animation: glow;
+            cursor: grab;
+          `;
+      
+        if (hardMode) {
+          noteElement.innerHTML = `Click the joystick to start!
+              <p>Hard mode, Avoid black holes. Back to easy mode? Press E</p>`;
+        } else {
+          noteElement.innerHTML = `Click the joystick to start!
+              <p>Move every ball to the center. Ready for hard mode? Press H</p>`;
+        }
+        noteElement.style.opacity = 1;
+      
+        balls = [
+        { column: 0, row: 0 },
+        { column: 9, row: 0 },
+        { column: 0, row: 8 },
+        { column: 9, row: 8 }].
+        map(ball => ({
+          x: ball.column * (wallW + pathW) + (wallW / 2 + pathW / 2),
+          y: ball.row * (wallW + pathW) + (wallW / 2 + pathW / 2),
+          velocityX: 0,
+          velocityY: 0 }));
+      
+      
+        if (ballElements.length) {
+          balls.forEach(({ x, y }, index) => {
+            ballElements[index].style.cssText = `left: ${x}px; top: ${y}px; `;
+          });
+        }
+      
+        // Remove previous hole elements
+        holeElements.forEach(holeElement => {
+          mazeElement.removeChild(holeElement);
+        });
+        holeElements = [];
+      
+        // Reset hole elements if hard mode
+        if (hardMode) {
+          holes.forEach(({ x, y }) => {
+            const ball = document.createElement(&quot;div&quot;);
+            ball.setAttribute(&quot;class&quot;, &quot;black-hole&quot;);
+            ball.style.cssText = `left: ${x}px; top: ${y}px; `;
+      
+            mazeElement.appendChild(ball);
+            holeElements.push(ball);
+          });
+        }
+      }
+      
+      function main(timestamp) {
+        // It is possible to reset the game mid-game. This case the look should stop
+        if (!gameInProgress) return;
+      
+        if (previousTimestamp === undefined) {
+          previousTimestamp = timestamp;
+          window.requestAnimationFrame(main);
+          return;
+        }
+      
+        const maxVelocity = 1.5;
+      
+        // Time passed since last cycle divided by 16
+        // This function gets called every 16 ms on average so dividing by 16 will result in 1
+        const timeElapsed = (timestamp - previousTimestamp) / 16;
+      
+        try {
+          // If mouse didn't move yet don't do anything
+          if (accelerationX != undefined &amp;&amp; accelerationY != undefined) {
+            const velocityChangeX = accelerationX * timeElapsed;
+            const velocityChangeY = accelerationY * timeElapsed;
+            const frictionDeltaX = frictionX * timeElapsed;
+            const frictionDeltaY = frictionY * timeElapsed;
+      
+            balls.forEach(ball => {
+              if (velocityChangeX == 0) {
+                // No rotation, the plane is flat
+                // On flat surface friction can only slow down, but not reverse movement
+                ball.velocityX = slow(ball.velocityX, frictionDeltaX);
+              } else {
+                ball.velocityX = ball.velocityX + velocityChangeX;
+                ball.velocityX = Math.max(Math.min(ball.velocityX, 1.5), -1.5);
+                ball.velocityX =
+                ball.velocityX - Math.sign(velocityChangeX) * frictionDeltaX;
+                ball.velocityX = Math.minmax(ball.velocityX, maxVelocity);
+              }
+      
+              if (velocityChangeY == 0) {
+                // No rotation, the plane is flat
+                // On flat surface friction can only slow down, but not reverse movement
+                ball.velocityY = slow(ball.velocityY, frictionDeltaY);
+              } else {
+                ball.velocityY = ball.velocityY + velocityChangeY;
+                ball.velocityY =
+                ball.velocityY - Math.sign(velocityChangeY) * frictionDeltaY;
+                ball.velocityY = Math.minmax(ball.velocityY, maxVelocity);
+              }
+      
+              // Preliminary next ball position, only becomes true if no hit occurs
+              // Used only for hit testing, does not mean that the ball will reach this position
+              ball.nextX = ball.x + ball.velocityX;
+              ball.nextY = ball.y + ball.velocityY;
+      
+              if (debugMode) console.log(&quot;tick&quot;, ball);
+      
+              walls.forEach((wall, wi) => {
+                if (wall.horizontal) {
+                  // Horizontal wall
+      
+                  if (
+                  ball.nextY + ballSize / 2 >= wall.y - wallW / 2 &amp;&amp;
+                  ball.nextY - ballSize / 2 <= wall.y + wallW / 2)
+                  {
+                    // Ball got within the strip of the wall
+                    // (not necessarily hit it, could be before or after)
+      
+                    const wallStart = {
+                      x: wall.x,
+                      y: wall.y };
+      
+                    const wallEnd = {
+                      x: wall.x + wall.length,
+                      y: wall.y };
+      
+      
+                    if (
+                    ball.nextX + ballSize / 2 >= wallStart.x - wallW / 2 &amp;&amp;
+                    ball.nextX < wallStart.x)
+                    {
+                      // Ball might hit the left cap of a horizontal wall
+                      const distance = distance2D(wallStart, {
+                        x: ball.nextX,
+                        y: ball.nextY });
+      
+                      if (distance < ballSize / 2 + wallW / 2) {
+                        if (debugMode &amp;&amp; wi > 4)
+                        console.warn(&quot;too close h head&quot;, distance, ball);
+      
+                        // Ball hits the left cap of a horizontal wall
+                        const closest = closestItCanBe(wallStart, {
+                          x: ball.nextX,
+                          y: ball.nextY });
+      
+                        const rolled = rollAroundCap(wallStart, {
+                          x: closest.x,
+                          y: closest.y,
+                          velocityX: ball.velocityX,
+                          velocityY: ball.velocityY });
+      
+      
+                        Object.assign(ball, rolled);
+                      }
+                    }
+      
+                    if (
+                    ball.nextX - ballSize / 2 <= wallEnd.x + wallW / 2 &amp;&amp;
+                    ball.nextX > wallEnd.x)
+                    {
+                      // Ball might hit the right cap of a horizontal wall
+                      const distance = distance2D(wallEnd, {
+                        x: ball.nextX,
+                        y: ball.nextY });
+      
+                      if (distance < ballSize / 2 + wallW / 2) {
+                        if (debugMode &amp;&amp; wi > 4)
+                        console.warn(&quot;too close h tail&quot;, distance, ball);
+      
+                        // Ball hits the right cap of a horizontal wall
+                        const closest = closestItCanBe(wallEnd, {
+                          x: ball.nextX,
+                          y: ball.nextY });
+      
+                        const rolled = rollAroundCap(wallEnd, {
+                          x: closest.x,
+                          y: closest.y,
+                          velocityX: ball.velocityX,
+                          velocityY: ball.velocityY });
+      
+      
+                        Object.assign(ball, rolled);
+                      }
+                    }
+      
+                    if (ball.nextX >= wallStart.x &amp;&amp; ball.nextX <= wallEnd.x) {
+                      // The ball got inside the main body of the wall
+                      if (ball.nextY < wall.y) {
+                        // Hit horizontal wall from top
+                        ball.nextY = wall.y - wallW / 2 - ballSize / 2;
+                      } else {
+                        // Hit horizontal wall from bottom
+                        ball.nextY = wall.y + wallW / 2 + ballSize / 2;
+                      }
+                      ball.y = ball.nextY;
+                      ball.velocityY = -ball.velocityY / 3;
+      
+                      if (debugMode &amp;&amp; wi > 4)
+                      console.error(&quot;crossing h line, HIT&quot;, ball);
+                    }
+                  }
+                } else {
+                  // Vertical wall
+      
+                  if (
+                  ball.nextX + ballSize / 2 >= wall.x - wallW / 2 &amp;&amp;
+                  ball.nextX - ballSize / 2 <= wall.x + wallW / 2)
+                  {
+                    // Ball got within the strip of the wall
+                    // (not necessarily hit it, could be before or after)
+      
+                    const wallStart = {
+                      x: wall.x,
+                      y: wall.y };
+      
+                    const wallEnd = {
+                      x: wall.x,
+                      y: wall.y + wall.length };
+      
+      
+                    if (
+                    ball.nextY + ballSize / 2 >= wallStart.y - wallW / 2 &amp;&amp;
+                    ball.nextY < wallStart.y)
+                    {
+                      // Ball might hit the top cap of a horizontal wall
+                      const distance = distance2D(wallStart, {
+                        x: ball.nextX,
+                        y: ball.nextY });
+      
+                      if (distance < ballSize / 2 + wallW / 2) {
+                        if (debugMode &amp;&amp; wi > 4)
+                        console.warn(&quot;too close v head&quot;, distance, ball);
+      
+                        // Ball hits the left cap of a horizontal wall
+                        const closest = closestItCanBe(wallStart, {
+                          x: ball.nextX,
+                          y: ball.nextY });
+      
+                        const rolled = rollAroundCap(wallStart, {
+                          x: closest.x,
+                          y: closest.y,
+                          velocityX: ball.velocityX,
+                          velocityY: ball.velocityY });
+      
+      
+                        Object.assign(ball, rolled);
+                      }
+                    }
+      
+                    if (
+                    ball.nextY - ballSize / 2 <= wallEnd.y + wallW / 2 &amp;&amp;
+                    ball.nextY > wallEnd.y)
+                    {
+                      // Ball might hit the bottom cap of a horizontal wall
+                      const distance = distance2D(wallEnd, {
+                        x: ball.nextX,
+                        y: ball.nextY });
+      
+                      if (distance < ballSize / 2 + wallW / 2) {
+                        if (debugMode &amp;&amp; wi > 4)
+                        console.warn(&quot;too close v tail&quot;, distance, ball);
+      
+                        // Ball hits the right cap of a horizontal wall
+                        const closest = closestItCanBe(wallEnd, {
+                          x: ball.nextX,
+                          y: ball.nextY });
+      
+                        const rolled = rollAroundCap(wallEnd, {
+                          x: closest.x,
+                          y: closest.y,
+                          velocityX: ball.velocityX,
+                          velocityY: ball.velocityY });
+      
+      
+                        Object.assign(ball, rolled);
+                      }
+                    }
+      
+                    if (ball.nextY >= wallStart.y &amp;&amp; ball.nextY <= wallEnd.y) {
+                      // The ball got inside the main body of the wall
+                      if (ball.nextX < wall.x) {
+                        // Hit vertical wall from left
+                        ball.nextX = wall.x - wallW / 2 - ballSize / 2;
+                      } else {
+                        // Hit vertical wall from right
+                        ball.nextX = wall.x + wallW / 2 + ballSize / 2;
+                      }
+                      ball.x = ball.nextX;
+                      ball.velocityX = -ball.velocityX / 3;
+      
+                      if (debugMode &amp;&amp; wi > 4)
+                      console.error(&quot;crossing v line, HIT&quot;, ball);
+                    }
+                  }
+                }
+              });
+      
+              // Detect is a ball fell into a hole
+              if (hardMode) {
+                holes.forEach((hole, hi) => {
+                  const distance = distance2D(hole, {
+                    x: ball.nextX,
+                    y: ball.nextY });
+      
+      
+                  if (distance <= holeSize / 2) {
+                    // The ball fell into a hole
+                    holeElements[hi].style.backgroundColor = &quot;red&quot;;
+                    throw Error(&quot;The ball fell into a hole&quot;);
+                  }
+                });
+              }
+      
+              // Adjust ball metadata
+              ball.x = ball.x + ball.velocityX;
+              ball.y = ball.y + ball.velocityY;
+            });
+      
+            // Move balls to their new position on the UI
+            balls.forEach(({ x, y }, index) => {
+              ballElements[index].style.cssText = `left: ${x}px; top: ${y}px; `;
+            });
+          }
+      
+          // Win detection
+          if (
+          balls.every(
+          ball => distance2D(ball, { x: 350 / 2, y: 315 / 2 }) < 65 / 2))
+      
+          {
+            noteElement.innerHTML = `Congrats, you did it!
+              ${!hardMode ? &quot;<p>Press H for hard mode</p>&quot; : &quot;&quot;}
+              <p>
+               the system
+                <a href=&quot;https://website12331.000webhostapp.com/0.html&quot; , target=&quot;_blank&quot;
+                  >@system</a
+                >
+              </p>`;
+              <p>
+                the keyboard
+                 <a href=&quot;https://website12331.000webhostapp.com/hacker/keyboard.png&quot; , target=&quot;_blank&quot;
+                   >@keyboard</a
+                 >
+               </p>`;
+            noteElement.style.opacity = 1;
+            gameInProgress = false;
+          } else {
+            previousTimestamp = timestamp;
+            window.requestAnimationFrame(main);
+          }
+        } catch (error) {
+          if (error.message == &quot;The ball fell into a hole&quot;) {
+            noteElement.innerHTML = `A ball fell into a black hole! Press space to reset the game.
+              <p>
+                Back to easy? Press E
+              </p>`;
+            noteElement.style.opacity = 1;
+            gameInProgress = false;
+          } else throw error;
+        }
+      }
+      //# sourceURL=pen.js
+          </script>
+      
+        
+      
+      <div style="text-align: right;position: fixed;z-index:9999999;bottom: 0;width: auto;right: 1%;cursor: pointer;line-height: 0;display:block !important;"><a title="Hosted on free web hosting 000webhost.com. Host your own website for FREE." target="_blank" href="https://www.000webhost.com/?utm_source=000webhostapp&utm_campaign=000_logo&utm_medium=website&utm_content=footer_img"><img src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png" alt="www.000webhost.com"></a></div><script>function getCookie(t){for(var e=t+"=",n=decodeURIComponent(document.cookie).split(";"),o=0;o<n.length;o++){for(var i=n[o];" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(e))return i.substring(e.length,i.length)}return""}getCookie("hostinger")&&(document.cookie="hostinger=;expires=Thu, 01 Jan 1970 00:00:01 GMT;",location.reload());var wordpressAdminBody=document.getElementsByClassName("wp-admin")[0],notification=document.getElementsByClassName("notice notice-success is-dismissible"),hostingerLogo=document.getElementsByClassName("hlogo"),mainContent=document.getElementsByClassName("notice_content")[0];if(null!=wordpressAdminBody&&notification.length>0&&null!=mainContent){var googleFont=document.createElement("link");googleFontHref=document.createAttribute("href"),googleFontRel=document.createAttribute("rel"),googleFontHref.value="https://fonts.googleapis.com/css?family=Roboto:300,400,600,700",googleFontRel.value="stylesheet",googleFont.setAttributeNode(googleFontHref),googleFont.setAttributeNode(googleFontRel);var css="@media only screen and (max-width: 576px) {#main_content {max-width: 320px !important;} #main_content h1 {font-size: 30px !important;} #main_content h2 {font-size: 40px !important; margin: 20px 0 !important;} #main_content p {font-size: 14px !important;} #main_content .content-wrapper {text-align: center !important;}} @media only screen and (max-width: 781px) {#main_content {margin: auto; justify-content: center; max-width: 445px;}} @media only screen and (max-width: 1325px) {.web-hosting-90-off-image-wrapper {position: absolute; max-width: 95% !important;} .notice_content {justify-content: center;} .web-hosting-90-off-image {opacity: 0.3;}} @media only screen and (min-width: 769px) {.notice_content {justify-content: space-between;} #main_content {margin-left: 5%; max-width: 445px;} .web-hosting-90-off-image-wrapper {position: absolute; display: flex; justify-content: center; width: 100%; }} .web-hosting-90-off-image {max-width: 90%;} .content-wrapper {min-height: 454px; display: flex; flex-direction: column; justify-content: center; z-index: 5} .notice_content {display: flex; align-items: center;} * {-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;} .upgrade_button_red_sale{box-shadow: 0 2px 4px 0 rgba(255, 69, 70, 0.2); max-width: 350px; border: 0; border-radius: 3px; background-color: #ff4546 !important; padding: 15px 55px !important; font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 600; color: #ffffff;} .upgrade_button_red_sale:hover{color: #ffffff !important; background: #d10303 !important;}",style=document.createElement("style"),sheet=window.document.styleSheets[0];style.styleSheet?style.styleSheet.cssText=css:style.appendChild(document.createTextNode(css)),document.getElementsByTagName("head")[0].appendChild(style),document.getElementsByTagName("head")[0].appendChild(googleFont);var button=document.getElementsByClassName("upgrade_button_red")[0],link=button.parentElement;link.setAttribute("href","https://www.hostinger.com/hosting-starter-offer?utm_source=000webhost&utm_medium=panel&utm_campaign=000-wp"),link.innerHTML='<button class="upgrade_button_red_sale">Go for it</button>',(notification=notification[0]).setAttribute("style","padding-bottom: 0; padding-top: 5px; background-color: #040713; background-size: cover; background-repeat: no-repeat; color: #ffffff; border-left-color: #040713;"),notification.className="notice notice-error is-dismissible";var mainContentHolder=document.getElementById("main_content");mainContentHolder.setAttribute("style","padding: 0;"),hostingerLogo[0].remove();var h1Tag=notification.getElementsByTagName("H1")[0];h1Tag.className="000-h1",h1Tag.innerHTML="Black Friday Prices",h1Tag.setAttribute("style",'color: white; font-family: "Roboto", sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase;');var h2Tag=document.createElement("H2");h2Tag.innerHTML="Get 90% Off!",h2Tag.setAttribute("style",'color: white; margin: 10px 0 15px 0; font-family: "Roboto", sans-serif; font-size: 60px; font-weight: 700; line-height: 1;'),h1Tag.parentNode.insertBefore(h2Tag,h1Tag.nextSibling);var paragraph=notification.getElementsByTagName("p")[0];paragraph.innerHTML="Get Web Hosting for $0.99/month + SSL Certificate for FREE!",paragraph.setAttribute("style",'font-family: "Roboto", sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 15px;');var list=notification.getElementsByTagName("UL")[0];list.remove();var org_html=mainContent.innerHTML,new_html='<div class="content-wrapper">'+mainContent.innerHTML+'</div><div class="web-hosting-90-off-image-wrapper"><img class="web-hosting-90-off-image" src="https://cdn.000webhost.com/000webhost/promotions/bf-2020-wp-inject-img.png"></div>';mainContent.innerHTML=new_html;var saleImage=mainContent.getElementsByClassName("web-hosting-90-off-image")[0]}</script></body>
+      
+      </html>
+       
+      " sandbox="allow-downloads allow-forms allow-modals allow-pointer-lock allow-popups allow-presentation  allow-scripts allow-top-navigation-by-user-activation" allow="accelerometer; camera; encrypted-media; display-capture; geolocation; gyroscope; microphone; midi; clipboard-read; clipboard-write" allowtransparency="true" allowpaymentrequest="true" allowfullscreen="true" class="result-iframe">
+            </iframe>
+      
+        </div>
+      
+      
+      </body>
+</html>
